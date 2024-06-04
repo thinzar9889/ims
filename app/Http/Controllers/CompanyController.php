@@ -10,10 +10,10 @@ class CompanyController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:company-list|company-create|company-edit|company-delete', ['only' => ['index', 'show']]);
-        $this->middleware('permission:company-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:company-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:company-delete', ['only' => ['destroy']]);
+        // $this->middleware('permission:company-list|company-create|company-edit|company-delete', ['only' => ['index', 'show']]);
+        // $this->middleware('permission:company-create', ['only' => ['create', 'store']]);
+        // $this->middleware('permission:company-edit', ['only' => ['edit', 'update']]);
+        // $this->middleware('permission:company-delete', ['only' => ['destroy']]);
     }
     public function index(Request $request)
     {
@@ -40,8 +40,15 @@ class CompanyController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'address' => 'required'
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'website' => 'required',
+            'description' => 'required'       
         ]);
+        // dd($data);
         Company::create($data);
         return redirect()->route('companies.index')->with('success', 'Successfully Created!');
 
@@ -65,7 +72,13 @@ class CompanyController extends Controller
 
         $data = $request->validate([
             'name' => 'required',
-            'address' => 'required'
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'website' => 'required',
+            'description' => 'required'
         ]);
         $company->update($data);
         return redirect()->route('companies.index')->with('success', 'Successfully Updated!');

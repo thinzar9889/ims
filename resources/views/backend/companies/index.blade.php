@@ -14,18 +14,30 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Name</th>
+                                        <th>Username</th>
+                                        <th>Email</th>
+                                        <th>Password</th>
+                                        <th>Phone</th>
                                         <th>Address</th>
+                                        <th>Website</th>
+                                        <th>Description</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                 </table>
-
+                                
 {{--                                <table class="table table-striped mb-2">--}}
 {{--                                    <thead>--}}
 {{--                                    <tr>--}}
 {{--                                        <th scope="col">No</th>--}}
 {{--                                        <th scope="col">Name</th>--}}
+{{--                                        <th scope="col">Username</th>--}}
+{{--                                        <th scope="col">Email</th>--}}
+{{--                                        <th scope="col">Password</th>--}}
+{{--                                        <th scope="col">Phone</th>--}}
 {{--                                        <th scope="col">Address</th>--}}
+{{--                                        <th scope="col">Website</th>--}}
+{{--                                        <th scope="col">Description</th>--}}
 {{--                                        <th scope="col">Action</th>--}}
 {{--                                    </tr>--}}
 {{--                                    </thead>--}}
@@ -34,7 +46,13 @@
 {{--                                        <tr>--}}
 {{--                                            <th scope="row">{{ ++$i }}</th>--}}
 {{--                                            <td>{{ $company->name }}</td>--}}
+{{--                                            <td>{{ $company->username }}</td>--}}
+{{--                                            <td>{{ $company->email }}</td>}}
+{{--                                            <td>{{ $company->password }}</td>--}}
+{{--                                            <td>{{ $company->phone }}</td>--}}
 {{--                                            <td>{{ $company->address }}</td>--}}
+{{--                                            <td>{{ $company->website }}</td>--}}
+{{--                                            <td>{{ $company->description}}</td>}}
 {{--                                            <td>--}}
 {{--                                                <div class="d-flex">--}}
 {{--                                                    @can('company-edit')--}}
@@ -88,7 +106,14 @@
                 columns: [
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                     { data: 'name', name: 'name' },
+                    { data: 'username', name: 'username' },
+                    { data: 'email', name: 'email' },
+                    { data: 'password', name: 'password' },
+                    { data: 'phone', name: 'phone' },
                     { data: 'address', name: 'address' },
+                    { data: 'website', name: 'website'},
+                    { data: 'description', name: 'description'},
+
                     { data: 'action', name: 'action', orderable: false },
                 ]
             });

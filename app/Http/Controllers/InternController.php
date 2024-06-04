@@ -10,10 +10,10 @@ class InternController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:intern-list|intern-create|intern-edit|intern-delete', ['only' => ['index', 'show']]);
-        $this->middleware('permission:intern-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:intern-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:intern-delete', ['only' => ['destroy']]);
+        // $this->middleware('permission:intern-list|intern-create|intern-edit|intern-delete', ['only' => ['index', 'show']]);
+        // $this->middleware('permission:intern-create', ['only' => ['create', 'store']]);
+        // $this->middleware('permission:intern-edit', ['only' => ['edit', 'update']]);
+        // $this->middleware('permission:intern-delete', ['only' => ['destroy']]);
     }
     public function index(Request $request)
     {
