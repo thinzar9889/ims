@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <div class="text-center">
         <a href="{{ route('users.index') }}" class="brand-link">
-            <span class="brand-text font-weight-light">Test</span>
+            <span class="brand-text font-weight-light">IMS</span>
         </a>
     </div>
 
