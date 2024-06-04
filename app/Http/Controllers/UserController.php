@@ -52,7 +52,6 @@ class UserController extends Controller
         ]);
 
         $data['password'] = Hash::make($data['password']);
-        $data['is_student'] = 0;
 
         $admin = User::create($data);
 
