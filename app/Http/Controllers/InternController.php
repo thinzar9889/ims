@@ -39,8 +39,21 @@ class InternController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required',
-            'address' => 'required'
+    
+            'intern_name' => 'required',
+            'birth_date'  => 'required',
+            'nrc' => 'required',
+            'email'  => 'required',
+            'password'  => 'required',
+            'phone'  => 'required',
+            'roll_no'  => 'required',
+            'degree'  => 'required',
+            'specialization'  => 'required',
+            'class_project'  => 'required',
+            'activity'  => 'required',
+            'skill'  => 'required',
+            'qualification'  => 'required',
+            'gender'  => 'required' 
         ]);
         Intern::create($data);
         return redirect()->route('interns.index')->with('success', 'Successfully Created!');

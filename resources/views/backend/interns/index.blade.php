@@ -13,8 +13,18 @@
                                     <thead class="bg-light">
                                     <tr>
                                         <th>No</th>
-                                        <th>Name</th>
-                                        <th>Address</th>
+                                        <th>Intern Name</th>
+                                    
+                                        <th>Email</th>
+                                        
+                                        <th>Phone</th>
+                                       
+                                       
+                                        <th>Specialization</th>
+                                        <th>Class Project</th>
+                                        <th>Activity</th>
+                                        <th>Skill</th>
+                                        
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -24,7 +34,20 @@
 {{--                                    <thead>--}}
 {{--                                    <tr>--}}
 {{--                                        <th scope="col">No</th>--}}
-{{--                                        <th scope="col">Name</th>--}}
+{{--                                        <th scope="col">Intern Name</th>--}}
+{{--                                        <th scope="col">Birth Date</th>--}}
+{{--                                        <th scope="col">NRC</th>--}}
+{{--                                        <th scope="col">Email</th>--}}
+{{--                                        <th scope="col">Password</th>--}}
+{{--                                        <th scope="col">Phone</th>--}}
+{{--                                        <th scope="col">Roll No</th>--}}
+{{--                                        <th scope="col">Degree</th>--}}
+{{--                                        <th scope="col">Specialization</th>--}}
+{{--                                        <th scope="col">Class Project</th>--}}
+{{--                                        <th scope="col">Activity</th>--}}
+{{--                                        <th scope="col">Skill</th>--}}
+{{--                                        <th scope="col">Qualification</th>--}}
+{{--                                        <th scope="col">Gender</th>--}}
 {{--                                        <th scope="col">Address</th>--}}
 {{--                                        <th scope="col">Action</th>--}}
 {{--                                    </tr>--}}

@@ -15,8 +15,25 @@ class CreateInternsTable extends Migration
     {
         Schema::create('interns', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('address');
+            $table->string('intern_name');
+            $table->date('birth_date');
+            $table->string('nrc');
+            $table->string('email');
+            $table->string('password');
+            $table->integer('phone');
+            $table->string('roll_no');
+            $table->string('degree');
+            $table->string('specialization');
+            $table->string('class_project');
+            $table->string('activity');
+            $table->string('skill');
+            $table->string('qualification');
+            $table->string('gender');
+            $table->string('address');
+
+           // $table->bigInteger('supervisor_id')->nullable();
+           // $table->foregin('supervisor_id')->references('id')->on('supervisors')->onDelete('cascade');
+           // $table->binary('image')->nullable();
             $table->timestamps();
         });
     }
