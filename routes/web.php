@@ -5,7 +5,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InternController;
 use App\Http\Controllers\CompanyController;
-
+use App\Http\Controllers\SupervisorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +18,7 @@ use App\Http\Controllers\CompanyController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes(['register' => false]);
@@ -40,4 +40,8 @@ Route::group(['middleware' => ['auth']], function () {
     // Intern
     Route::resource('interns', InternController::class);
     Route::post('delete-intern', [InternController::class, 'destroy'])->name('delete-intern');
+
+    // Supervisor
+    Route::resource('supervisors', SupervisorController::class);
+    Route::post('delete-supervisor', [SupervisorController::class, 'destroy'])->name('delete-supervisor');
 });

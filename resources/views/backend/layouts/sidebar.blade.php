@@ -65,6 +65,33 @@
             <!-- @endcan -->
             <!-- End Interns -->
 
+             <!-- Supervisors -->
+             @can('supervisor-list')
+            <li class="nav-item {{ Request::segment(1) === 'supervisors' ? 'menu-is-opening menu-open' : '' }}">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-building"></i>
+                    <p>Supervisor<i class="right fas fa-angle-left"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('supervisors.index') }}" class="nav-link {{ request()->route()->getName() === 'supervisors.index' ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Lists</p>
+                        </a>
+                    </li>
+                    @can('supervisor-create')
+                    <li class="nav-item">
+                        <a href="{{ route('supervisors.create') }}" class="nav-link {{ request()->route()->getName() === 'supervisors.create' ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Create</p>
+                        </a>
+                    </li>
+                    @endcan
+                </ul>
+            </li>
+            @endcan
+            <!-- End Supervisor -->
+
             <!-- Users -->
             @can('user-list')
             <li class="nav-item {{ Request::segment(1) === 'users' ? 'menu-is-opening menu-open' : '' }}">
