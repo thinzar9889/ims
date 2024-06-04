@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\CompanyController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InternController;
+use App\Http\Controllers\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,8 @@ Route::group(['middleware' => ['auth']], function () {
     // Company
     Route::resource('companies', CompanyController::class);
     Route::post('delete-company', [CompanyController::class, 'destroy'])->name('delete-company');
+
+    // Intern
+    Route::resource('interns', InternController::class);
+    Route::post('delete-intern', [InternController::class, 'destroy'])->name('delete-intern');
 });

@@ -37,6 +37,34 @@
             </li>
             @endcan
             <!-- End Companies -->
+
+            <!-- Interns -->
+            @can('intern-list')
+            <li class="nav-item {{ Request::segment(1) === 'interns' ? 'menu-is-opening menu-open' : '' }}">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-building"></i>
+                    <p>Interns<i class="right fas fa-angle-left"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('interns.index') }}" class="nav-link {{ request()->route()->getName() === 'interns.index' ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Lists</p>
+                        </a>
+                    </li>
+                    @can('intern-create')
+                    <li class="nav-item">
+                        <a href="{{ route('interns.create') }}" class="nav-link {{ request()->route()->getName() === 'interns.create' ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Create</p>
+                        </a>
+                    </li>
+                    @endcan
+                </ul>
+            </li>
+            @endcan
+            <!-- End Interns -->
+
             <!-- Users -->
             @can('user-list')
             <li class="nav-item {{ Request::segment(1) === 'users' ? 'menu-is-opening menu-open' : '' }}">
