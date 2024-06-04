@@ -39,7 +39,7 @@
             <!-- End Companies -->
 
             <!-- Interns -->
-            @can('intern-list')
+            <!-- @can('intern-list') -->
             <li class="nav-item {{ Request::segment(1) === 'interns' ? 'menu-is-opening menu-open' : '' }}">
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-building"></i>
@@ -62,7 +62,7 @@
                     @endcan
                 </ul>
             </li>
-            @endcan
+            <!-- @endcan -->
             <!-- End Interns -->
 
             <!-- Users -->

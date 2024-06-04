@@ -22,8 +22,32 @@
                                         <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" value='{{ $company->name }}'>
                                     </div>
                                     <div class="form-group">
+                                        <label class="form-label" for="username">Username</label>
+                                        <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username" value='{{ $company->username }}'>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="email">Email</label>
+                                        <input type="text" name="email" class="form-control" id="email" placeholder="Enter Email" value='{{ $company->email }}'>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="email">Password</label>
+                                        <input type="text" name="password" class="form-control" id="password" placeholder="Enter Password" value='{{ $company->password }}'>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="phone">Phone</label>
+                                        <input type="text" name="phone" class="form-control" id="phone" placeholder="Enter Phone" value='{{ $company->phone }}'>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="address">Address</label>
                                         <textarea class="form-control" name="address" id="address" rows="3">{{ $company->address }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="website">Website</label>
+                                        <input type="text" name="wesite" class="form-control" id="website" placeholder="Enter Website" value='{{ $company->website }}'>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Description</label>
+                                        <textarea class="form-control" name="description" id="description" rows="2">{{ $company->description }}</textarea>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->

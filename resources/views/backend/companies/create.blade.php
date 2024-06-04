@@ -21,8 +21,32 @@
                                         <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name">
                                     </div>
                                     <div class="form-group">
+                                        <label class="form-label" for="username">Username</label>
+                                        <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="email">Email</label>
+                                        <input type="text" name="email" class="form-control" id="email" placeholder="Enter Email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="password">Password</label>
+                                        <input type="text" name="password" class="form-control" id="password" placeholder="Enter Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="phone">Phone</label>
+                                        <input type="text" name="phone" class="form-control" id="phone" placeholder="Enter Phone">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="address">Address</label>
                                         <textarea class="form-control" name="address" id="address" rows="3"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="website">Website</label>
+                                        <input type="text" name="website" class="form-control" id="website" placeholder="Enter Website">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Description</label>
+                                        <textarea class="form-control" name="description" id="description" rows="2"></textarea>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
