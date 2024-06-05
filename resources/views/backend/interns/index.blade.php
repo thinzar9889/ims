@@ -13,18 +13,9 @@
                                     <thead class="bg-light">
                                     <tr>
                                         <th>No</th>
-                                        <th>Intern Name</th>
-                                    
+                                        <th>Name</th>
                                         <th>Email</th>
-                                        
-                                        <th>Phone</th>
-                                       
-                                       
-                                        <th>Specialization</th>
-                                        <th>Class Project</th>
-                                        <th>Activity</th>
-                                        <th>Skill</th>
-                                        
+                                        <th>Roll No</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -111,7 +102,8 @@
                 columns: [
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                     { data: 'name', name: 'name' },
-                    { data: 'address', name: 'address' },
+                    { data: 'email', name: 'email' },
+                    { data: 'roll_no', name: 'roll_no' },
                     { data: 'action', name: 'action', orderable: false },
                 ]
             });
@@ -151,5 +143,3 @@
         });
     </script>
 @endsection
-
-

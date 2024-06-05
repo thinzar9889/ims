@@ -10,10 +10,10 @@ class InternController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('permission:intern-list|intern-create|intern-edit|intern-delete', ['only' => ['index', 'show']]);
-        // $this->middleware('permission:intern-create', ['only' => ['create', 'store']]);
-        // $this->middleware('permission:intern-edit', ['only' => ['edit', 'update']]);
-        // $this->middleware('permission:intern-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:intern-list|intern-create|intern-edit|intern-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:intern-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:intern-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:intern-delete', ['only' => ['destroy']]);
     }
     public function index(Request $request)
     {
@@ -35,12 +35,12 @@ class InternController extends Controller
     {
         return view('backend.interns.create');
     }
-
+       
     public function store(Request $request)
     {
+       
         $data = $request->validate([
-    
-            'intern_name' => 'required',
+            'name' => 'required',
             'birth_date'  => 'required',
             'nrc' => 'required',
             'email'  => 'required',
@@ -53,7 +53,8 @@ class InternController extends Controller
             'activity'  => 'required',
             'skill'  => 'required',
             'qualification'  => 'required',
-            'gender'  => 'required' 
+            'gender'  => 'required',
+            'address' => 'required' 
         ]);
         Intern::create($data);
         return redirect()->route('interns.index')->with('success', 'Successfully Created!');
@@ -78,8 +79,22 @@ class InternController extends Controller
 
         $data = $request->validate([
             'name' => 'required',
-            'address' => 'required'
+            'birth_date'  => 'required',
+            'nrc' => 'required',
+            'email'  => 'required',
+            'password'  => 'required',
+            'phone'  => 'required',
+            'roll_no'  => 'required',
+            'degree'  => 'required',
+            'specialization'  => 'required',
+            'class_project'  => 'required',
+            'activity'  => 'required',
+            'skill'  => 'required',
+            'qualification'  => 'required',
+            'gender'  => 'required',
+            'address' => 'required' 
         ]);
+
         $intern->update($data);
         return redirect()->route('interns.index')->with('success', 'Successfully Updated!');
     }
