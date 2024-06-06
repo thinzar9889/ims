@@ -92,6 +92,34 @@
             @endcan
             <!-- End Supervisor -->
 
+  <!--Reports -->
+  @can('report-list')
+            <li class="nav-item {{ Request::segment(1) === 'reports' ? 'menu-is-opening menu-open' : '' }}">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-building"></i>
+                    <p>Reports<i class="right fas fa-angle-left"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('reports.index') }}" class="nav-link {{ request()->route()->getName() === 'companies.index' ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Lists</p>
+                        </a>
+                    </li>
+                    @can('report-create')
+                    <li class="nav-item">
+                        <a href="{{ route('reports.create') }}" class="nav-link {{ request()->route()->getName() === 'companies.create' ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Create</p>
+                        </a>
+                    </li>
+                    @endcan
+                </ul>
+            </li>
+            @endcan
+            <!-- End Companies -->
+
+
             <!-- Users -->
             @can('user-list')
             <li class="nav-item {{ Request::segment(1) === 'users' ? 'menu-is-opening menu-open' : '' }}">

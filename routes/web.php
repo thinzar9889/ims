@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\InternController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\SupervisorController;
+use App\Http\Controllers\ReportController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,4 +45,8 @@ Route::group(['middleware' => ['auth']], function () {
     // Supervisor
     Route::resource('supervisors', SupervisorController::class);
     Route::post('delete-supervisor', [SupervisorController::class, 'destroy'])->name('delete-supervisor');
+
+     // Report
+     Route::resource('reports', ReportController::class);
+     Route::post('delete-report', [ReportController::class, 'destroy'])->name('delete-report');
 });

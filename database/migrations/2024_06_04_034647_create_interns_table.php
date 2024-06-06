@@ -30,10 +30,6 @@ class CreateInternsTable extends Migration
             $table->text('qualification');
             $table->string('gender');
             $table->text('address');
-
-           // $table->bigInteger('supervisor_id')->nullable();
-           // $table->foregin('supervisor_id')->references('id')->on('supervisors')->onDelete('cascade');
-           // $table->binary('image')->nullable();
             $table->timestamps();
         });
     }
