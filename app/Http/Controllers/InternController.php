@@ -54,7 +54,7 @@ class InternController extends Controller
             'skill'  => 'required',
             'qualification'  => 'required',
             'gender'  => 'required',
-            'address' => 'required' 
+            'address' => 'required'
         ]);
         Intern::create($data);
         return redirect()->route('interns.index')->with('success', 'Successfully Created!');
@@ -63,7 +63,8 @@ class InternController extends Controller
 
     public function show($id)
     {
-        //
+        $interns = Intern::find($id);
+        return view('backend.interns.show')->with('interns', $interns);
     }
 
     public function edit($id)
@@ -92,7 +93,7 @@ class InternController extends Controller
             'skill'  => 'required',
             'qualification'  => 'required',
             'gender'  => 'required',
-            'address' => 'required' 
+            'address' => 'required'
         ]);
 
         $intern->update($data);
