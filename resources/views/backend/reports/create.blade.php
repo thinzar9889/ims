@@ -23,8 +23,12 @@
 
         <div> 
             <label>Roll No:</label>
-            <input type="text" name="roll_no" id="roll_no" class="form-control" placeholder="Enter Roll No">
-        </div><br><br><br>
+            <select name="roll_no" id="roll_no" class="form-control">
+            @foreach($interns as $id => $intern)
+                <option value="{{ $id }}">{{$intern->roll_no}}</option>
+            @endforeach
+          </select><br>
+
 
          <label>Month:</label>
          <select name="month"  id="month" >
