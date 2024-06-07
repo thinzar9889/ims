@@ -21,6 +21,11 @@ class Internship extends Model
         'duration',
         'description'
     ];
+    
+    public function duration()
+    {
+        return $this->duration. " Months";
+    }
 
     public function intern()
     {

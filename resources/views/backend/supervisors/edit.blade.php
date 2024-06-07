@@ -24,14 +24,25 @@
                                     <div class="form-group">
                                         <label class="form-label" for="email">Email</label>
                                         <input type="text" name="email" class="form-control" id="email" placeholder="Enter Email" value='{{ $supervisor->email }}'>
+                                        @if($errors->has('email'))
+                                            <div class="alert alert-warning" role="alert">{{ $errors->first('email') }}</div>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="password">Password</label>
                                         <input type="text" name="password" class="form-control" id="password" placeholder="Enter Password" value='{{ $supervisor->password }}'>
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="phone">Phone</label>
                                         <input type="text" name="phone" class="form-control" id="phone" placeholder="Enter Phone" value='{{ $supervisor->phone }}'>
+                                        @error('phone')
+                                            <span class="invalid-feedback d-block" role="alert"><strong>{{ $message }}</strong></span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="position">Position</label>
