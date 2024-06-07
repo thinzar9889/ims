@@ -24,6 +24,7 @@ class PermissionTableSeeder extends Seeder
             'role-edit',
             'role-delete',
             'company-list',
+            'company-show',
             'company-create',
             'company-edit',
             'company-delete',
@@ -35,6 +36,11 @@ class PermissionTableSeeder extends Seeder
             'supervisor-create',
             'supervisor-edit',
             'supervisor-delete',
+            'evaluation-list',
+            'evaluation-show',
+            'evaluation-create',
+            'evaluation-edit',
+            'evaluation-delete'
         ];
 
         foreach ($permissions as $permission) {

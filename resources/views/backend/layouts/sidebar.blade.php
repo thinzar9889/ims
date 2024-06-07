@@ -92,6 +92,32 @@
             @endcan
             <!-- End Supervisor -->
 
+            <!-- Evaluaations -->
+            @can('evaluation-list')
+            <li class="nav-item {{ Request::segment(1) === 'evaluations' ? 'menu-is-opening menu-open' : '' }}">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>Manage Evaluation<i class="right fas fa-angle-left"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('evaluations.index') }}" class="nav-link {{ request()->route()->getName() === 'evaluations.index' ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Evaluation Lists</p>
+                        </a>
+                    </li>
+                    @can('evaluation-create')
+                    <li class="nav-item">
+                        <a href="{{ route('evaluations.create') }}" class="nav-link {{ request()->route()->getName() === 'evaluations.create' ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Manage Evaluation</p>
+                        </a>
+                    </li>
+                    @endcan
+                </ul>
+            </li>
+            @endcan
+            <!-- End Evaluations -->
             <!-- Users -->
             @can('user-list')
             <li class="nav-item {{ Request::segment(1) === 'users' ? 'menu-is-opening menu-open' : '' }}">

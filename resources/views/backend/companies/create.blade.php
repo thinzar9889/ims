@@ -26,16 +26,30 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="email">Email</label>
-                                        <input type="text" name="email" class="form-control" id="email" placeholder="Enter Email">
+                                        <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email">
+                                        @if($errors->has('email'))
+                                            <div class="alert alert-warning" role="alert">{{ $errors->first('email') }}</div>
+                                        @endif
+
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="password">Password</label>
-                                        <input type="text" name="password" class="form-control" id="password" placeholder="Enter Password">
+                                        <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password">
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="phone">Phone</label>
-                                        <input type="text" name="phone" class="form-control" id="phone" placeholder="Enter Phone">
+                                        <input type="phone" name="phone" class="form-control" id="phone" placeholder="Enter Phone">
+                                        @error('phone')
+                                            <span class="invalid-feedback d-block" role="alert"><strong>{{ $message }}</strong></span>
+                                        @enderror
                                     </div>
+
                                     <div class="form-group">
                                         <label for="address">Address</label>
                                         <textarea class="form-control" name="address" id="address" rows="3"></textarea>

@@ -9,12 +9,15 @@ class Company extends Model
 {
     use HasFactory;
 
-    protected $fillable = [  'name', 
+    protected $fillable = [ 'name',
                             'username',
                             'email',
-                            'password', 
-                            'phone', 
-                            'address', 
-                            'website', 
+                            'password',
+                            'phone',
+                            'address',
+                            'website',
                             'description'];
+
+    protected $casts = [
+                        'email_verified_at' => 'datetime',];
 }
