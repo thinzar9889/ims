@@ -70,9 +70,9 @@ class SupervisorController extends Controller
 
         $data = $request->validate([
             'name'=> 'required',
-            'email'=> 'required',
-            'password'=> 'required',
-            'phone'=> 'required',
+            'email'=> 'required|email|unique:users',
+            'password'=> ['required','string', 'min:8'],
+            'phone'=> 'required|digits:11',
             'position'=> 'required',
             'address' => 'required'
         ]);

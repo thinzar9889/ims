@@ -28,6 +28,12 @@ class InternshipController extends Controller
             ->editColumn('intern_id', function($data) {
                 return $data->intern ? $data->intern->name : '-';
             })
+            ->editColumn('supervisor_id', function($data) {
+                return $data->supervisor ? $data->supervisor->name : '-';
+            })
+            ->editColumn('company_id', function($data) {
+                return $data->company ? $data->company->name : '-';
+            })
                 ->addColumn('action', 'backend.internships.action')
                 ->rawColumns(['action'])
                 ->make(true);
