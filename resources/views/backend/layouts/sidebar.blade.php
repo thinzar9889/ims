@@ -116,7 +116,7 @@
                 </ul>
             </li>
             @endcan
-             <!-- End Evaluaations -->
+             <!-- End Evaluations -->
             <!--Reports -->
             @can('report-list')
                 <li class="nav-item {{ Request::segment(1) === 'reports' ? 'menu-is-opening menu-open' : '' }}">
