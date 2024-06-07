@@ -22,41 +22,8 @@
                                     </tr>
                                     </thead>
                                 </table>
-
-{{--                                <table class="table table-striped mb-2">--}}
-{{--                                    <thead>--}}
-{{--                                    <tr>--}}
-{{--                                        <th scope="col">No</th>--}}
-{{--                                        <th scope="col">Name</th>--}}
-{{--                                        <th scope="col">Position</th>--}}
-{{--                                        <th scope="col">Action</th>--}}
-{{--                                    </tr>--}}
-{{--                                    </thead>--}}
-{{--                                    <tbody>--}}
-{{--                                    @foreach($supervisors as $supervisor)--}}
-{{--                                        <tr>--}}
-{{--                                            <th scope="row">{{ ++$i }}</th>--}}
-{{--                                            <td>{{ $supervisor->supervisor_name }}</td>--}}
-{{--                                            <td>{{ $supervisor->position }}</td>--}}
-{{--                                            <td>--}}
-{{--                                                <div class="d-flex">--}}
-{{--                                                    @can('supervisor-edit')--}}
-{{--                                                        <a href="{{ route('supervisors.edit', $supervisor->id) }}" class="edit btn btn-sm btn-outline-warning mr-2">--}}
-{{--                                                            <i class="fas fa-edit"></i>--}}
-{{--                                                        </a>--}}
-{{--                                                    @endcan--}}
-{{--                                                    @can('supervisor-delete')--}}
-{{--                                                        <a href="#" data-id="{{ $supervisor->id }}" class="delete-btn btn btn-sm btn-outline-danger">--}}
-{{--                                                            <i class="fas fa-trash-alt"></i>--}}
-{{--                                                        </a>--}}
-{{--                                                    @endcan--}}
-{{--                                                </div>--}}
-{{--                                            </td>--}}
-{{--                                        </tr>--}}
-{{--                                    @endforeach--}}
-{{--                                    </tbody>--}}
-{{--                                </table>--}}
-{{--                                {!! $supervisors->render() !!}--}}
+                            
+                            
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -90,7 +57,7 @@
                 ajax: "{{ route('internships.index') }}",
                 columns: [
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
-                   
+
                     { data: 'intern_id', name: 'intern_id' },
                     { data: 'supervisor_id', name: 'supervisor_id' },
                     { data: 'company_id', name: 'company_id' },
@@ -135,5 +102,6 @@
         });
     </script>
 @endsection
+
 
 

@@ -91,6 +91,33 @@
             </li>
             @endcan
             <!-- End Supervisor -->
+
+            <!-- Internship -->
+            <!-- @can('intern-list') -->
+            <li class="nav-item {{ Request::segment(1) === 'interns' ? 'menu-is-opening menu-open' : '' }}">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-building"></i>
+                    <p>Internship<i class="right fas fa-angle-left"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('internships.index') }}" class="nav-link {{ request()->route()->getName() === 'interns.index' ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Lists</p>
+                        </a>
+                    </li>
+                    @can('intern-create')
+                    <li class="nav-item">
+                        <a href="{{ route('internships.create') }}" class="nav-link {{ request()->route()->getName() === 'interns.create' ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Create</p>
+                        </a>
+                    </li>
+                    @endcan
+                </ul>
+            </li>
+            <!-- @endcan -->
+            <!-- End Interns -->
             <!-- Evaluaations -->
             @can('evaluation-list')
             <li class="nav-item {{ Request::segment(1) === 'evaluations' ? 'menu-is-opening menu-open' : '' }}">
