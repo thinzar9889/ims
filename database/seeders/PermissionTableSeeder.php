@@ -32,6 +32,7 @@ class PermissionTableSeeder extends Seeder
             'intern-create',
             'intern-edit',
             'intern-delete',
+            'intern-show',
             'supervisor-list',
             'supervisor-create',
             'supervisor-edit',
@@ -40,7 +41,12 @@ class PermissionTableSeeder extends Seeder
             'evaluation-show',
             'evaluation-create',
             'evaluation-edit',
-            'evaluation-delete'
+            'evaluation-delete',
+            'report-list',
+            'report-create',
+            'report-edit',
+            'report-delete',
+            'report-show',
         ];
 
         foreach ($permissions as $permission) {

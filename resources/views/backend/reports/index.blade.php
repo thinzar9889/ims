@@ -9,37 +9,30 @@
                         <div class="card">
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table class="table align-middle mb-0 bg-white" id="intern-datatable" style="width:100%">
+                                <table class="table align-middle mb-0 bg-white" id="report-datatable" style="width:100%">
                                     <thead class="bg-light">
                                     <tr>
                                         <th>No</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Roll No</th>
+                                        <th>Intern Name</th>
+                                        <th>Month</th>
+                                        <th>Week</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                 </table>
-
+                                
 {{--                                <table class="table table-striped mb-2">--}}
 {{--                                    <thead>--}}
 {{--                                    <tr>--}}
 {{--                                        <th scope="col">No</th>--}}
-{{--                                        <th scope="col">Intern Name</th>--}}
-{{--                                        <th scope="col">Birth Date</th>--}}
-{{--                                        <th scope="col">NRC</th>--}}
+{{--                                        <th scope="col">Name</th>--}}
+{{--                                        <th scope="col">startdate</th>--}}
 {{--                                        <th scope="col">Email</th>--}}
 {{--                                        <th scope="col">Password</th>--}}
 {{--                                        <th scope="col">Phone</th>--}}
-{{--                                        <th scope="col">Roll No</th>--}}
-{{--                                        <th scope="col">Degree</th>--}}
-{{--                                        <th scope="col">Specialization</th>--}}
-{{--                                        <th scope="col">Class Project</th>--}}
-{{--                                        <th scope="col">Activity</th>--}}
-{{--                                        <th scope="col">Skill</th>--}}
-{{--                                        <th scope="col">Qualification</th>--}}
-{{--                                        <th scope="col">Gender</th>--}}
 {{--                                        <th scope="col">Address</th>--}}
+{{--                                        <th scope="col">Website</th>--}}
+{{--                                        <th scope="col">Description</th>--}}
 {{--                                        <th scope="col">Action</th>--}}
 {{--                                    </tr>--}}
 {{--                                    </thead>--}}
@@ -48,7 +41,13 @@
 {{--                                        <tr>--}}
 {{--                                            <th scope="row">{{ ++$i }}</th>--}}
 {{--                                            <td>{{ $company->name }}</td>--}}
+{{--                                            <td>{{ $company->username }}</td>--}}
+{{--                                            <td>{{ $company->email }}</td>}}
+{{--                                            <td>{{ $company->password }}</td>--}}
+{{--                                            <td>{{ $company->phone }}</td>--}}
 {{--                                            <td>{{ $company->address }}</td>--}}
+{{--                                            <td>{{ $company->website }}</td>--}}
+{{--                                            <td>{{ $company->description}}</td>}}
 {{--                                            <td>--}}
 {{--                                                <div class="d-flex">--}}
 {{--                                                    @can('company-edit')--}}
@@ -94,16 +93,16 @@
                     icon: "success"
                 });
             @endif
-            $('#intern-datatable').DataTable({
+            $('#report-datatable').DataTable({
                 responsive: true,
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('interns.index') }}",
+                ajax: "{{ route('reports.index') }}",
                 columns: [
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
-                    { data: 'name', name: 'name' },
-                    { data: 'email', name: 'email' },
-                    { data: 'roll_no', name: 'roll_no' },
+                    { data: 'intern_id', name: 'intern_id' },
+                    { data: 'month', name: 'month' },
+                    { data: 'week', name: 'week' },
                     { data: 'action', name: 'action', orderable: false },
                 ]
             });
@@ -122,11 +121,11 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type:"POST",
-                            url: "{{ route('delete-intern') }}",
+                            url: "{{ route('delete-report') }}",
                             data: { id: id},
                             dataType: 'json',
                             success: function(res){
-                                let table = $('#intern-datatable').dataTable();
+                                let table = $('#report-datatable').dataTable();
                                 table.fnDraw(false);
                                 Swal.fire({
                                     title: "Deleted!",
@@ -143,3 +142,5 @@
         });
     </script>
 @endsection
+
+

@@ -9,13 +9,15 @@
                         <div class="card">
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table class="table align-middle mb-0 bg-white" id="intern-datatable" style="width:100%">
+                                <table class="table align-middle mb-0 bg-white" id="internship-datatable" style="width:100%">
                                     <thead class="bg-light">
                                     <tr>
                                         <th>No</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Roll No</th>
+                                        <th>Intern</th>
+                                        <th>Supervisor</th>
+                                        <th>Company</th>
+                                        <th>Duration</th>
+                                        <th>Description</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -25,39 +27,26 @@
 {{--                                    <thead>--}}
 {{--                                    <tr>--}}
 {{--                                        <th scope="col">No</th>--}}
-{{--                                        <th scope="col">Intern Name</th>--}}
-{{--                                        <th scope="col">Birth Date</th>--}}
-{{--                                        <th scope="col">NRC</th>--}}
-{{--                                        <th scope="col">Email</th>--}}
-{{--                                        <th scope="col">Password</th>--}}
-{{--                                        <th scope="col">Phone</th>--}}
-{{--                                        <th scope="col">Roll No</th>--}}
-{{--                                        <th scope="col">Degree</th>--}}
-{{--                                        <th scope="col">Specialization</th>--}}
-{{--                                        <th scope="col">Class Project</th>--}}
-{{--                                        <th scope="col">Activity</th>--}}
-{{--                                        <th scope="col">Skill</th>--}}
-{{--                                        <th scope="col">Qualification</th>--}}
-{{--                                        <th scope="col">Gender</th>--}}
-{{--                                        <th scope="col">Address</th>--}}
+{{--                                        <th scope="col">Name</th>--}}
+{{--                                        <th scope="col">Position</th>--}}
 {{--                                        <th scope="col">Action</th>--}}
 {{--                                    </tr>--}}
 {{--                                    </thead>--}}
 {{--                                    <tbody>--}}
-{{--                                    @foreach($companies as $company)--}}
+{{--                                    @foreach($supervisors as $supervisor)--}}
 {{--                                        <tr>--}}
 {{--                                            <th scope="row">{{ ++$i }}</th>--}}
-{{--                                            <td>{{ $company->name }}</td>--}}
-{{--                                            <td>{{ $company->address }}</td>--}}
+{{--                                            <td>{{ $supervisor->supervisor_name }}</td>--}}
+{{--                                            <td>{{ $supervisor->position }}</td>--}}
 {{--                                            <td>--}}
 {{--                                                <div class="d-flex">--}}
-{{--                                                    @can('company-edit')--}}
-{{--                                                        <a href="{{ route('companies.edit', $company->id) }}" class="edit btn btn-sm btn-outline-warning mr-2">--}}
+{{--                                                    @can('supervisor-edit')--}}
+{{--                                                        <a href="{{ route('supervisors.edit', $supervisor->id) }}" class="edit btn btn-sm btn-outline-warning mr-2">--}}
 {{--                                                            <i class="fas fa-edit"></i>--}}
 {{--                                                        </a>--}}
 {{--                                                    @endcan--}}
-{{--                                                    @can('company-delete')--}}
-{{--                                                        <a href="#" data-id="{{ $company->id }}" class="delete-btn btn btn-sm btn-outline-danger">--}}
+{{--                                                    @can('supervisor-delete')--}}
+{{--                                                        <a href="#" data-id="{{ $supervisor->id }}" class="delete-btn btn btn-sm btn-outline-danger">--}}
 {{--                                                            <i class="fas fa-trash-alt"></i>--}}
 {{--                                                        </a>--}}
 {{--                                                    @endcan--}}
@@ -67,7 +56,7 @@
 {{--                                    @endforeach--}}
 {{--                                    </tbody>--}}
 {{--                                </table>--}}
-{{--                                {!! $companies->render() !!}--}}
+{{--                                {!! $supervisors->render() !!}--}}
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -94,16 +83,19 @@
                     icon: "success"
                 });
             @endif
-            $('#intern-datatable').DataTable({
+            $('#internship-datatable').DataTable({
                 responsive: true,
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('interns.index') }}",
+                ajax: "{{ route('internships.index') }}",
                 columns: [
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
-                    { data: 'name', name: 'name' },
-                    { data: 'email', name: 'email' },
-                    { data: 'roll_no', name: 'roll_no' },
+                   
+                    { data: 'intern_id', name: 'intern_id' },
+                    { data: 'supervisor_id', name: 'supervisor_id' },
+                    { data: 'company_id', name: 'company_id' },
+                    { data: 'duration', name: 'duration' },
+                    { data: 'description', name: 'description' },
                     { data: 'action', name: 'action', orderable: false },
                 ]
             });
@@ -122,11 +114,11 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type:"POST",
-                            url: "{{ route('delete-intern') }}",
+                            url: "{{ route('delete-internship') }}",
                             data: { id: id},
                             dataType: 'json',
                             success: function(res){
-                                let table = $('#intern-datatable').dataTable();
+                                let table = $('#internship-datatable').dataTable();
                                 table.fnDraw(false);
                                 Swal.fire({
                                     title: "Deleted!",
@@ -143,3 +135,5 @@
         });
     </script>
 @endsection
+
+

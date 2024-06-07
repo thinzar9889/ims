@@ -15,53 +15,46 @@
                             <!-- form start -->
                             <form action="{{ route('interns.store') }}" method="POST">
                                 @csrf
-                                <div class="card-body">
+                                    <div class="card-body">
                                     <div class="form-group">
-                                        <label class="form-label" for="name">Intern Name</label>
-                                        <input type="text" name="intern_name" class="form-control" id="intern_name" placeholder="Enter Intern Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="name">Birth Date</label>
-                                        <input type="text" name="birth_date" class="form-control" id="birth_date" placeholder="Enter Intern Name">
+                                        <label class="form-label" for="name">Name</label>
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name">
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="form-label" for="name">NRC</label>
+                                        <label class="form-label" for="birth_date">Birth Date</label>
+                                        <input type="text" name="birth_date" class="form-control" id="birth_date" placeholder="2024/7/16">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="nrc">NRC</label>
                                         <input type="text" name="nrc" class="form-control" id="nrc" placeholder="Enter NRC">
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="form-label" for="name">Email</label>
+                                        <label class="form-label" for="email">Email</label>
                                         <input type="text" name="email" class="form-control" id="email" placeholder="Enter Email">
                                     </div>
 
-                                    
                                     <div class="form-group">
-                                        <label class="form-label" for="name">Password</label>
+                                        <label class="form-label" for="password">Password</label>
                                         <input type="text" name="password" class="form-control" id="password" placeholder="Enter Password">
                                     </div>
 
-
-                                    
                                     <div class="form-group">
-                                        <label class="form-label" for="name">Phone</label>
+                                        <label class="form-label" for="phone">Phone</label>
                                         <input type="text" name="phone" class="form-control" id="phone" placeholder="Enter Phone">
                                     </div>
 
-                                    
                                     <div class="form-group">
-                                        <label class="form-label" for="name">Roll No</label>
+                                        <label class="form-label" for="roll_no">Roll No</label>
                                         <input type="text" name="roll_no" class="form-control" id="roll_no" placeholder="Enter Roll No">
                                     </div>
 
-
-                                    
                                     <div class="form-group">
-                                        <label class="form-label" for="name">Degree</label>
+                                        <label class="form-label" for="degree">Degree</label>
                                         <input type="text" name="degree" class="form-control" id="degree" placeholder="Enter Degree">
                                     </div><br><br>
- 
-
 
                                     <label>Specialization:</label>
                                       <select name="specialization"  id="specialization" >
@@ -70,38 +63,36 @@
                                        <br><br><br>
 
                                     <div class="form-group">
-                                        <label for="address">Class Project</label>
-                                        <textarea class="form-control" name="address" id="address" rows="3"></textarea>
+                                        <label for="class_project">Class Project</label>
+                                        <textarea class="form-control" name="class_project" id="class_project" rows="3"></textarea>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="address">Activity</label>
-                                        <textarea class="form-control" name="address" id="address" rows="3"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="address">Skill</label>
-                                        <textarea class="form-control" name="address" id="address" rows="3"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="address">Qualification</label>
-                                        <textarea class="form-control" name="address" id="address" rows="3"></textarea>
-                                    </div><br>
 
-                                 
-                                    
-                                    <label  >Gender:</label>
+                                    <div class="form-group">
+                                        <label for="activity">Activity</label>
+                                        <textarea class="form-control" name="activity" id="activity" rows="3"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="skill">Skill</label>
+                                        <textarea class="form-control" name="skill" id="skill" rows="3"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="qualification">Qualification</label>
+                                        <textarea class="form-control" name="qualification" id="qualification" rows="3"></textarea>
+                                    </div><br><br>
+
+                                    <label>Gender:</label>
                                       <select name="gender"  id="gender" >
                                        <option value="male" selected>Male</option>
                                        <option value="female">Female</option>
                                      </select> <br><br><br>
-                                                    
-
-                                    
+                                                
                                     <div class="form-group">
                                         <label for="address">Address</label>
                                         <textarea class="form-control" name="address" id="address" rows="3"></textarea>
                                     </div>
-                                    
-                                </div>
+                                    </div>
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">

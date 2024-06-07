@@ -9,5 +9,22 @@ class Intern extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['intern_name', 'birth_date','nrc','email','password','phone','roll_no','degree','specialization','class_project','activity','skill','qualification','gender' ];
+    protected $primaryKey = 'id';
+    protected $fillable = [
+        'name', 
+        'birth_date',
+        'nrc',
+        'email',
+        'password',
+        'phone',
+        'roll_no',
+        'degree',
+        'specialization',
+        'class_project',
+        'activity',
+        'skill',
+        'qualification',
+        'gender',
+        'address'
+    ];
 }

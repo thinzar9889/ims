@@ -8,7 +8,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\SupervisorController;
 use App\Http\Controllers\EvaluationController;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\ReportController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,4 +51,7 @@ Route::group(['middleware' => ['auth']], function () {
     //Evaluation
     Route::resource('evaluations', EvaluationController::class);
     Route::post('delete-evaluation', [EvaluationController::class, 'destroy'])->name('delete-evaluation');
+     // Report
+     Route::resource('reports', ReportController::class);
+     Route::post('delete-report', [ReportController::class, 'destroy'])->name('delete-report');
 });
