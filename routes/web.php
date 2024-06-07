@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InternController;
+use App\Http\Controllers\InternshipController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\SupervisorController;
 use App\Http\Controllers\ReportController;
@@ -45,6 +46,10 @@ Route::group(['middleware' => ['auth']], function () {
     // Supervisor
     Route::resource('supervisors', SupervisorController::class);
     Route::post('delete-supervisor', [SupervisorController::class, 'destroy'])->name('delete-supervisor');
+
+    // Internship
+    Route::resource('internships', InternshipController::class);
+    Route::post('delete-internship', [InternshipController::class, 'destroy'])->name('delete-internship');
 
      // Report
      Route::resource('reports', ReportController::class);

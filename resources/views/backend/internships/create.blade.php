@@ -2,7 +2,7 @@
 @section('content')
 
 
-<!-- sample -->
+
 
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -46,9 +46,9 @@
                 <div class="form-group">
                   <label>Intern Name</label>
                   <select class="form-control select2" name="intern_id" id="intern_id" style="width: 100%;">
-                    @foreach($interns as $intern)
-                        <option name="intern_id" value="{{$intern->id}}">{{$intern->name}}</option>
-                    @endforeach
+                  @foreach( $interns as $id=> $name )
+                    <option value="{{ $id }}">{{ $name }}</option>
+                  @endforeach
                   </select>
                 </div>
                 <!-- /.form-group -->

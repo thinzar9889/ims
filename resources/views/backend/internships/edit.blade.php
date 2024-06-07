@@ -22,7 +22,9 @@
                                     <div class="form-group">
                                     <label>Intern Name</label>
                                     <select class="form-control select2" name="intern_id" id="intern_id" style="width: 100%;" value='{{ $internship->intern_id}}'>
-                                        <option selected="selected">Phyo</option>
+                                    @foreach($interns as $intern)
+                                        <option name="intern_id" value="{{$intern->id}}">{{$intern->name}}</option>
+                                    @endforeach
                                     </select>
                                     </div>
                
@@ -34,7 +36,9 @@
                                         <div class="form-group">
                                         <label>Supervisor Name</label>
                                         <select class="form-control select2" name="supervisor_id" id="supervisor_id" style="width: 100%;" value='{{ $internship->supervisor_id }}'>
-                                        <option>Daw Htet</option>
+                                        @foreach($supervisors as $supervisor)
+                                            <option name="supervisor_id" value="{{$supervisor->id}}">{{$supervisor->name}}</option>
+                                        @endforeach
                                         </select>
                                         </div>
                                         <!-- /.form-group -->
@@ -46,7 +50,9 @@
                                     <div class="form-group">
                                     <label>Company Name</label>
                                     <select name="company_id" class="form-control" id="company_id" style="width: 100%;" value='{{ $internship->company_id }}'>
-                                        <option>SH</option>
+                                    @foreach($companies as $company)
+                                        <option name="company_id" value="{{$company->id}}">{{$company->name}}</option>
+                                    @endforeach
                                         
                                     </select>
                                             </div>
