@@ -10,10 +10,10 @@ class CompanyController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('permission:company-list|company-create|company-edit|company-delete', ['only' => ['index', 'show']]);
-        // $this->middleware('permission:company-create', ['only' => ['create', 'store']]);
-        // $this->middleware('permission:company-edit', ['only' => ['edit', 'update']]);
-        // $this->middleware('permission:company-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:company-list|company-create|company-show|company-edit|company-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:company-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:company-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:company-delete', ['only' => ['destroy']]);
     }
     public function index(Request $request)
     {
@@ -39,14 +39,14 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required',
-            'username' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'phone' => 'required',
-            'address' => 'required',
-            'website' => 'required',
-            'description' => 'required'       
+            'name' => ['required'],
+            'username' =>['required'],
+            'email' => ['required','email'],
+            'password' => ['required','min:8'],
+            'phone' => ['required'],
+            'address' => ['required'],
+            'website' => ['required'],
+            'description' => ['required']
         ]);
         // dd($data);
         Company::create($data);
@@ -56,7 +56,9 @@ class CompanyController extends Controller
 
     public function show($id)
     {
-        //
+        $company = Company::find($id);
+
+        return view('backend.companies.show')->with('company', $company);
     }
 
     public function edit($id)
@@ -68,18 +70,19 @@ class CompanyController extends Controller
 
     public function update(Request $request, $id)
     {
-        $company = Company::findOrFail($id);
 
+        $company = Company::findOrFail($id);
         $data = $request->validate([
-            'name' => 'required',
-            'username' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'phone' => 'required',
-            'address' => 'required',
-            'website' => 'required',
-            'description' => 'required'
+            'name' => ['required'],
+            'username' => ['required'],
+            'email' => ['required','email'],
+            'password' => ['required','min:8'],
+            'phone' => ['required'],
+            'address' => ['required'],
+            'website' => ['required'],
+            'description' => ['required']
         ]);
+
         $company->update($data);
         return redirect()->route('companies.index')->with('success', 'Successfully Updated!');
     }
