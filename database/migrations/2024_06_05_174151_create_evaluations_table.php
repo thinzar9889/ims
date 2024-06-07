@@ -33,10 +33,10 @@ class CreateEvaluationsTable extends Migration
             $table->string('basic_skill');
             $table->string('professional_appearance');
             $table->string('overall_assessment_work_quality');
-            $table->text('professional_viewpoint');
-            $table->text('comments_student');
-            $table->text('comments_intership');
-            $table->text('comments');
+            $table->text('professional_viewpoint')->nullable();
+            $table->text('comments_student')->nullable();
+            $table->text('comments_intership')->nullable();
+            $table->text('comments')->nullable();
             $table->timestamps();
         });
 

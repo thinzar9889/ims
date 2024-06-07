@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Company;
+use App\Models\Intern;
 
 class Evaluation extends Model
 {
@@ -28,18 +30,18 @@ class Evaluation extends Model
         'basic_skill',
         'professional_appearance',
         'overall_assessment_work_quality',
-        'professional_viewpoint';
-        'comments_student';
-        'comments_intership';
+        'professional_viewpoint',
+        'comments_student',
+        'comments_intership',
         'comments'];
 
         public function intern()
         {
             return $this->belongsTo(Intern::class);
         }
-        
-        public functiion company()
+
+        public function company()
         {
-            return $this->hasMany(Company::class);
+            return $this->belongsTo(Company::class);
         }
 }

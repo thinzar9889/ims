@@ -21,7 +21,14 @@ class EvaluationController extends Controller
         if($request->ajax()) {
             $evaluations = Evaluation::query();
 
-            return DataTables::of($evaluations)->addIndexColumn()
+            return DataTables::of($evaluations)
+                ->addIndexColumn()
+                ->editColumn('intern_id', function($data){
+                    return $data->intern ? $data->intern->name : '-';
+                })
+                ->editColumn('company_id', function($data){
+                    return $data->company ? $data->company->name : '-';
+                })
                 ->addColumn('action', 'backend.evaluations.action')
                 ->rawColumns(['action'])
                 ->make(true);
@@ -55,9 +62,9 @@ class EvaluationController extends Controller
             'basic_skill'=> 'required',
             'professional_appearance'=> 'required',
             'overall_assessment_work_quality'=> 'required',
-            'professional_viewpoint',
-            'comments_student',
-            'comments_intership',
+            'professional_viewpoint' => 'nullable',
+            'comments_student' => 'nullable',
+            'comments_intership' => 'nullable',
             'comments' => 'required'
         ]);
         Evaluation::create($data);
