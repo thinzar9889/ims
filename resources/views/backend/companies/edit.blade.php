@@ -27,15 +27,15 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="email">Email</label>
-                                        <input type="text" name="email" class="form-control" id="email" placeholder="Enter Email" value='{{ $company->email }}'>
+                                        <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email" value='{{ $company->email }}'>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label" for="email">Password</label>
-                                        <input type="text" name="password" class="form-control" id="password" placeholder="Enter Password" value='{{ $company->password }}'>
+                                        <label class="form-label" for="password">Password</label>
+                                        <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password" value='{{ $company->password }}'>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="phone">Phone</label>
-                                        <input type="text" name="phone" class="form-control" id="phone" placeholder="Enter Phone" value='{{ $company->phone }}'>
+                                        <input type="phone" name="phone" class="form-control" id="phone" placeholder="Enter Phone" value='{{ $company->phone }}'>
                                     </div>
                                     <div class="form-group">
                                         <label for="address">Address</label>
@@ -43,7 +43,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="website">Website</label>
-                                        <input type="text" name="wesite" class="form-control" id="website" placeholder="Enter Website" value='{{ $company->website }}'>
+                                        <input type="text" name="website" class="form-control" id="website" placeholder="Enter Website" value='{{ $company->website }}'>
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>

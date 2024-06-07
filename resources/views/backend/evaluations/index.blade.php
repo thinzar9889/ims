@@ -9,47 +9,50 @@
                         <div class="card">
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table class="table align-middle mb-0 bg-white" id="company-datatable" style="width:100%">
+                                <table class="table align-middle mb-0 bg-white" id="evaluation-datatable" style="width:100%">
                                     <thead class="bg-light">
                                     <tr>
                                         <th>No</th>
-                                        <th>Name</th>
-                                        <th>Username</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
+                                        <th>Roll Number</th>
+                                        <th>Intern Name</th>
+                                        <th>Company Name</th>
+                                        <!-- <th>Username</th> -->
+                                        <th>Period</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                 </table>
-
+                                
 {{--                                <table class="table table-striped mb-2">--}}
 {{--                                    <thead>--}}
 {{--                                    <tr>--}}
 {{--                                        <th scope="col">No</th>--}}
-{{--                                        <th scope="col">Name</th>--}}
+{{--                                        <th scope="col">Roll Number</th>--}}
+{{--                                        <th scope="col">Intern Name</th>--}}
+{{--                                        <th scope="col">Company Name</th>--}}
 {{--                                        <th scope="col">Username</th>--}}
-{{--                                        <th scope="col">Email</th>--}}
-{{--                                        <th scope="col">Phone</th>--}}
+{{--                                        <th scope="col">Period</th>--}}
 {{--                                        <th scope="col">Action</th>--}}
 {{--                                    </tr>--}}
 {{--                                    </thead>--}}
 {{--                                    <tbody>--}}
-{{--                                    @foreach($companies as $company)--}}
+{{--                                    @foreach($evaluations as $evaluation)--}}
 {{--                                        <tr>--}}
 {{--                                            <th scope="row">{{ ++$i }}</th>--}}
-{{--                                            <td>{{ $company->name }}</td>--}}
-{{--                                            <td>{{ $company->username }}</td>--}}
-{{--                                            <td>{{ $company->email }}</td>--}}
-{{--                                            <td>{{ $company->phone }}</td>--}}
+{{--                                            <td>{{ $evaluation->roll_no}}</td>--}}
+{{--                                            <td>{{ $evaluation->intern_id }}</td>--}}
+{{--                                            <td>{{ $evaluation->company_name}}</td>--}}
+{{--                                            <td>{{ $evaluation->company_username }}</td>--}}
+{{--                                            <td>{{ $evaluation->period }}</td>--}}
 {{--                                            <td>--}}
 {{--                                                <div class="d-flex">--}}
-{{--                                                    @can('company-edit')--}}
-{{--                                                        <a href="{{ route('companies.edit', $company->id) }}" class="edit btn btn-sm btn-outline-warning mr-2">--}}
+{{--                                                    @can('evaluation-edit')--}}
+{{--                                                        <a href="{{ route('evaluations.edit', $evaluation->id) }}" class="edit btn btn-sm btn-outline-warning mr-2">--}}
 {{--                                                            <i class="fas fa-edit"></i>--}}
 {{--                                                        </a>--}}
 {{--                                                    @endcan--}}
-{{--                                                    @can('company-delete')--}}
-{{--                                                        <a href="#" data-id="{{ $company->id }}" class="delete-btn btn btn-sm btn-outline-danger">--}}
+{{--                                                    @can('evaluation-delete')--}}
+{{--                                                        <a href="#" data-id="{{ $evaluation->id }}" class="delete-btn btn btn-sm btn-outline-danger">--}}
 {{--                                                            <i class="fas fa-trash-alt"></i>--}}
 {{--                                                        </a>--}}
 {{--                                                    @endcan--}}
@@ -59,7 +62,7 @@
 {{--                                    @endforeach--}}
 {{--                                    </tbody>--}}
 {{--                                </table>--}}
-{{--                                {!! $companies->render() !!}--}}
+{{--                                {!! $evaluations->render() !!}--}}
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -79,16 +82,6 @@
 
 @section('script')
     <script type="text/javascript">
-        // JavaScript code for the show button functionality
-        $(document).ready(function() {
-            $('.show-btn').click(function() {
-            // Retrieve the data ID associated with the button
-                var companyId = $(this).data('company-id');
-
-                    // Redirect to the show page using the retrieved ID
-                window.location.href = "/companies/" + companyId;
-            });
-        });
         $(document).ready( function () {
             @if (session('success'))
                 Swal.fire({
@@ -96,17 +89,18 @@
                     icon: "success"
                 });
             @endif
-            $('#company-datatable').DataTable({
+            $('#evaluation-datatable').DataTable({
                 responsive: true,
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('companies.index') }}",
+                ajax: "{{ route('evaluations.index') }}",
                 columns: [
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
-                    { data: 'name', name: 'name' },
-                    { data: 'username', name: 'username' },
-                    { data: 'email', name: 'email' },
-                    { data: 'phone', name: 'phone' },
+                    { data: 'intern_name', name: 'intern_name' },
+                    { data: 'roll_no', name: 'roll_no'},
+                    { data: 'company_name', name: 'company_name'},
+                    // { data: 'company_username', name: 'company_username' },
+                    { data: 'period', name: 'period' },
 
                     { data: 'action', name: 'action', orderable: false },
                 ]
@@ -126,11 +120,11 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type:"POST",
-                            url: "{{ route('delete-company') }}",
+                            url: "{{ route('delete-evaluation') }}",
                             data: { id: id},
                             dataType: 'json',
                             success: function(res){
-                                let table = $('#company-datatable').dataTable();
+                                let table = $('#evaluation-datatable').dataTable();
                                 table.fnDraw(false);
                                 Swal.fire({
                                     title: "Deleted!",
