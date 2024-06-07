@@ -18,9 +18,9 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label class="form-label" for="intern_id">Intern Name</label>
-                                        <select id="intern_id" name="intern_id" class="form-control" required>
+                                        <select id="intern_id" name="intern_id" class="form-control">
                                             @foreach($interns as $intern)
-                                                <option value="{{ $intern->intern_id }}">{{ $intern->name}}</option>
+                                                <option value="{{ $intern->id }}">{{ $intern->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -36,7 +36,7 @@
                                         <label class="form-label" for="company_id">Company Name</label>
                                         <select name="company_id" class="form-control" id="company_id" placeholder="Enter company name" required>
                                             @foreach($companies as $company)
-                                                <option value="{{ $company->company_id }}">{{ $company->name}}</option>
+                                                <option value="{{ $company->id }}">{{ $company->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>

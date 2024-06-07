@@ -22,7 +22,7 @@
                                     </tr>
                                     </thead>
                                 </table>
-                                
+
 {{--                                <table class="table table-striped mb-2">--}}
 {{--                                    <thead>--}}
 {{--                                    <tr>--}}
@@ -96,9 +96,9 @@
                 ajax: "{{ route('evaluations.index') }}",
                 columns: [
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
-                    { data: 'intern_name', name: 'intern_name' },
                     { data: 'roll_no', name: 'roll_no'},
-                    { data: 'company_name', name: 'company_name'},
+                    { data: 'intern_id', name: 'intern_id' },
+                    { data: 'company_id', name: 'company_id'},
                     // { data: 'company_username', name: 'company_username' },
                     { data: 'period', name: 'period' },
 
